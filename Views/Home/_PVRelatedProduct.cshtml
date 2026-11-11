@@ -1,0 +1,27 @@
+﻿@model _25DH110874_MyStore.Models.ViewModel.ProductDetailVM
+@using PagedList.Mvc
+
+<link href="~/Content/myStyle/CustomerHome.css" rel="stylesheet" />
+
+@if (Model.RelatedProducts != null && Model.RelatedProducts.Any())
+{
+    <section class="container-fluid listProduct">
+        <h4 style="font-weight:bold;">Sản phẩm liên quan</h4>
+        <ul class="list-container">
+            @foreach (var product in Model.RelatedProducts)
+            {
+                <li class="lproduct-item">
+                    <div>
+                        <a href="@Url.Action("ProductDetails", "Home", new { id = product.ProductID })">
+                            <img src="@product.ProductImage" alt="@product.ProductName" />
+                        </a>
+                    </div>
+                    <div>
+                        <h5>@product.ProductName</h5>
+                        <p class="prodSale">@product.ProductPrice.ToString("C")</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </section>
+})

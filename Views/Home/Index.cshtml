@@ -1,0 +1,29 @@
+﻿@model _25DH110874_MyStore.Models.ViewModel.HomeProductVM
+@{
+    ViewBag.Title = "Home Page";
+    <link rel="stylesheet" type="text/css" href="~/Content/myStyle/CustomerHome.css" />
+}
+
+<main>
+    <section class="container-fluid banner">
+        <div class="banner-container">
+            <h2>Welcome to Our Store</h2>
+            <p>Discover the best products at the lowest prices.</p>
+            <a href="#" class="btnBanner">Shop Now</a>
+        </div>
+    </section>
+    <section class="container-fluid searchProd">
+        <h2>Search Products</h2>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+        {
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control", placeholder = "Search for products..." })
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        }
+    </section>
+    <hr />
+    @Html.Partial("_FeaturedProducts", Model.FeaturedProducts)
+    <hr />
+    @Html.Partial("_NewProducts", Model.NewProducts)
+</main>

@@ -1,0 +1,62 @@
+﻿@model _25DH110874_MyStore.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="bg-success">Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="bg-success">
+            @*@Html.DisplayNameFor(model => model.ProductName)*@
+            Tên sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt class="bg-success">
+            @*@Html.DisplayNameFor(model => model.ProductPrice)*@
+            Giá sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductPrice)
+        </dd>
+
+        <dt class="bg-success">
+            @*@Html.DisplayNameFor(model => model.ProductImage)*@
+            Hình ảnh sản phẩm
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.ProductImage)" alt="Product Image" style="width: 150px; height: auto;" />
+        </dd>
+
+        <dt class="bg-success">
+            @*@Html.DisplayNameFor(model => model.ProductDescription)*@
+            Mô tả sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDescription)
+        </dd>
+
+        <dt class="bg-success">
+            @*@Html.DisplayNameFor(model => model.Category.CategoryName)*@
+            Danh mục
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+    </dl>
+    <div class="form-actions no-color">
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.ProductID }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-primary" })
+    </div>
+</div>

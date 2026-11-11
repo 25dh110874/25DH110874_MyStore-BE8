@@ -1,0 +1,29 @@
+﻿@model _25DH110874_MyStore.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="bg-success">CHI TIẾT DANH MỤC</h2>
+
+<div class="form-group">
+    <hr />
+    <div class="control-label col-md-2">
+        @*Html.DisplayNameFor(model => model.CategoryName)*@
+        Tên danh mục
+    </div>
+    <div class="col-md-10">
+        @*Giá trị của trường CategoryName*@
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+    </dl>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Cập nhật", "Edit", new { id = Model.CategoryID }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
